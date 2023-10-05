@@ -45,14 +45,12 @@ import { Icon } from '@iconify/vue';
 import MenuItem from './MenuItem.vue';
 import Avatar from '../Avatar.vue';
 
-// import { useLoginModal } from '~/stores/loginModal';
-// import { useRegisterModal } from '~/stores/registerModal';
+import { useLoginModal } from '../../stores/loginModal';
+import { useRegisterModal } from '../../stores/registerModal';
 
 const isOpen = ref(false);
 const toggleOpen = () => { isOpen.value = !isOpen.value };
 
-// const registerModal = useRegisterModal();
-const registerModal = { open: () => { } };
-// const loginModal = useLoginModal();
-const loginModal = { open: () => { } };
+const registerModal = useRegisterModal();
+const loginModal = useLoginModal();
 </script>
