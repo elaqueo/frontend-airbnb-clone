@@ -3,7 +3,7 @@
     <Icon
       v-if="formatPrice"
       icon="bx:dollar"
-      size="24"
+      fonst-size="24"
       class="text-neutral-700 absolute top-5 left-2"
     />
 

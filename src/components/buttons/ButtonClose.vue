@@ -5,7 +5,7 @@
     >
       <Icon
         icon="ion:close"
-        size="18"
+        font-size="18"
       />
     </button>
 </template>

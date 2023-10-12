@@ -8,7 +8,7 @@
         <div class="p-2 bg-rose-500 rounded-full text-white">
           <Icon
             icon="bi:search"
-            size="18"
+            font-size="18"
           />
         </div>
       </div>

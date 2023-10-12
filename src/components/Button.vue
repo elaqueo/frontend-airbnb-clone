@@ -9,7 +9,7 @@
     <Icon
       v-if="icon"
       :icon="icon"
-      size="24"
+      font-size="24"
       class="absolute left-4 top-3"
     />
   </button>

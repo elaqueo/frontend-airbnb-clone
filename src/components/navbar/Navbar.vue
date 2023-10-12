@@ -9,11 +9,13 @@
         </div>
       </Container>
     </div>
+    <Categories />
   </div>
 </template>
 
 <script setup lang="ts">
 import Container from '../Container.vue';
+import Categories from '../Categories.vue';
 import Logo from './Logo.vue';
 import Search from './Search.vue';
 import UserMenu from './UserMenu.vue';

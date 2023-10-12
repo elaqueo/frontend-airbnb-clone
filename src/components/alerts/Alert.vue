@@ -1,8 +1,8 @@
 <template>
   <div
     v-if="viewAlert"
-    class="flex items-center relative font-regular relative block w-full rounded-lg bg-red-500 p-4 text-base leading-5 text-white opacity-90">
-    <Icon v-if="icon" :icon="icon" size="32" class="mr-2" />
+    class="flex items-center relative font-regular w-full rounded-lg bg-red-500 p-4 text-base leading-5 text-white opacity-90">
+    <Icon v-if="icon" :icon="icon" font-size="32" class="mr-2" />
 
     <slot></slot>
 
