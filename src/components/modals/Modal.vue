@@ -12,15 +12,7 @@
           class="translate h-full lg:h-auto md:h-auto border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"
         >
           <div class="flex items-center justify-center p-6 rounded-t relative border-b-[1px]">
-            <button
-              @click="handleClose"
-              class="p-1 border-0 hover:opacity-70 transition absolute left-9"
-            >
-              <Icon
-                icon="ion:close"
-                size="18"
-              />
-            </button>
+            <ButtonClose class="absolute left-9" @click="handleClose" />
 
             <div class="text-lg font-semibold">
               {{ title }}
@@ -55,8 +47,8 @@
 </template>
 
 <script setup lang="ts">
-import { Icon } from '@iconify/vue/dist/iconify.js';
 import Button from '../Button.vue';
+import ButtonClose from '../buttons/ButtonClose.vue';
 
 export type ModalProps = {
   isOpen?: boolean;

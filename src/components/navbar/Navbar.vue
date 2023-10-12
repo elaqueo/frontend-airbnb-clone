@@ -17,6 +17,4 @@ import Container from '../Container.vue';
 import Logo from './Logo.vue';
 import Search from './Search.vue';
 import UserMenu from './UserMenu.vue';
-
-
 </script>

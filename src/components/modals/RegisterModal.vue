@@ -13,9 +13,9 @@
         subtitle="Create an account"
       />
 
-      <Alert v-if="error">
+      <AlertError v-if="error">
         {{ error }}
-      </Alert>
+      </AlertError>
 
       <Input
         v-model="form.email"
@@ -80,10 +80,10 @@ import axios from 'axios';
 import { useRegisterModal } from '../../stores/registerModal';
 import Modal from './Modal.vue';
 import Heading from '../Heading.vue';
-import Alert from '../Alert.vue';
 import Input from '../Input.vue';
 import Button from '../Button.vue';
 import { reactive, ref } from 'vue';
+import AlertError from '../alerts/AlertError.vue';
 
 const registerModal = useRegisterModal();
 const isLoading = ref(false);
