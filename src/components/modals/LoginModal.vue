@@ -32,15 +32,16 @@
 </template>
 
 <script setup lang="ts">
-import axios from 'axios';
+import { reactive, ref } from 'vue';
 
+import { AirBnb } from '../../libs/api/AirBnb';
+import { LoginDto } from '../../libs/dtos/authDto';
 import { useLoginModal } from '../../stores/loginModal';
 // import { useRegisterModal } from '../../stores/registerModal';
 import Modal from './Modal.vue';
 import Heading from '../Heading.vue';
 import Input from '../Input.vue';
 import Button from '../Button.vue';
-import { reactive, ref } from 'vue';
 import AlertError from '../alerts/AlertError.vue';
 import { useAuthStore } from '../../stores/auth.store';
 
@@ -48,7 +49,7 @@ import { useAuthStore } from '../../stores/auth.store';
 const loginModal = useLoginModal();
 const isLoading = ref(false);
 
-const form = reactive<Record<string, string>>({
+const form = reactive<LoginDto>({
   email: '',
   password: '',
 });
@@ -62,11 +63,8 @@ const onSubmit = async () => {
     error.value = null;
     isLoading.value = true;
 
-    const rLogin = await axios.post('http://localhost:3000/auth/login', form);
-
-    axios.defaults.headers.common = { 'Authorization': `Bearer ${rLogin.data.token}` }
-    const r = await axios.get('http://localhost:3000/auth/profile');
-    authStore.setUser(r.data);
+    const user = await AirBnb.auth.login(form);
+    authStore.setUser(user);
 
     loginModal.close();
   } catch (e) {

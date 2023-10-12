@@ -76,19 +76,21 @@
 </template>
 
 <script setup lang="ts">
-import axios from 'axios';
+import { reactive, ref } from 'vue';
+
+import { AirBnb } from '../../libs/api/AirBnb';
+import { RegisterDto } from '../../libs/dtos/authDto';
 import { useRegisterModal } from '../../stores/registerModal';
 import Modal from './Modal.vue';
 import Heading from '../Heading.vue';
 import Input from '../Input.vue';
 import Button from '../Button.vue';
-import { reactive, ref } from 'vue';
 import AlertError from '../alerts/AlertError.vue';
 
 const registerModal = useRegisterModal();
 const isLoading = ref(false);
 
-const form = reactive<Record<string, string>>({
+const form = reactive<RegisterDto>({
   name: '',
   email: '',
   password: '',
@@ -102,7 +104,7 @@ const onSubmit = async () => {
     error.value = null;
     isLoading.value = true;
 
-    await axios.post('/api/register', form);
+    await AirBnb.auth.register(form);
 
     registerModal.close();
   } catch (e) {

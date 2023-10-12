@@ -34,6 +34,9 @@ export const useAuthStore = defineStore("auth", {
   getters: {
     isLogged(): boolean {
       return !!this.user?._id;
-    }
+    },
+    image(): string {
+      return this.user?.image ?? '/img/placeholder.jpg';
+    },
   }
 });

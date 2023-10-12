@@ -18,14 +18,17 @@
       class="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
       <div class="flex flex-col cursor-pointer">
         <template v-if="authStore.isLogged">
-          <MenuItem @click="authStore.logout" label="Logout">
-          </MenuItem>
+          <MenuItem @click="() => {}" label="My trips"></MenuItem>
+          <MenuItem @click="() => {}" label="My favorites"></MenuItem>
+          <MenuItem @click="() => {}" label="My reservations"></MenuItem>
+          <MenuItem @click="() => {}" label="My properties"></MenuItem>
+          <MenuItem @click="() => {}" label="Airbnb my home"></MenuItem>
+          <hr />
+          <MenuItem @click="authStore.logout" label="Logout"></MenuItem>
         </template>
         <template v-else>
-          <MenuItem @click="loginModal.open" label="Login">
-          </MenuItem>
-          <MenuItem @click="registerModal.open" label="Signup">
-          </MenuItem>
+          <MenuItem @click="loginModal.open" label="Login"></MenuItem>
+          <MenuItem @click="registerModal.open" label="Signup"></MenuItem>
         </template>
       </div>
     </div>

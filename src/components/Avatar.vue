@@ -1,6 +1,6 @@
 <template>
   <img
-    src="/img/placeholder.jpg"
+    :src="authStore.image"
     alt="Avatar"
     class="rounded-full"
     width="30"
@@ -9,5 +9,8 @@
 </template>
 
 <script setup lang="ts">
+import { useAuthStore } from '../stores/auth.store';
+
+const authStore = useAuthStore();
 
 </script>
