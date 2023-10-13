@@ -41,6 +41,30 @@
           @change="(value) => (form.location = value ?? null)"
           :value="form.location"
         />
+        <Map />
+      </template>
+      <template v-else-if="step === STEPS.INFO">
+        <Heading
+          title="Share some basics about your place"
+          subtitle="What amenities do you have?"
+        />
+        <Counter
+          title="Guests"
+          subtitle="How many guests do you allow?"
+          v-model:value="form.guestCount"
+        />
+        <hr />
+        <Counter
+          title="Rooms"
+          subtitle="How many rooms do you have?"
+          v-model:value="form.roomCount"
+        />
+        <hr />
+        <Counter
+          title="Bathrooms"
+          subtitle="How many bathrooms do you have?"
+          v-model:value="form.bathroomCount"
+        />
       </template>
     </div>
   </Modal>
@@ -55,7 +79,9 @@ import Modal from './Modal.vue';
 import Heading from '../Heading.vue';
 import CategoryInput from '../inputs/CategoryInput.vue';
 import CountrySelect from '../inputs/CountrySelect.vue';
+import Map from '../Map.vue';
 import { listingMakeDefault } from '../../libs/dtos/listings.dto';
+import Counter from '../inputs/Counter.vue';
 
 enum STEPS {
   CATEGORY,

@@ -333,6 +333,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/geojson@npm:*":
+  version: 7946.0.11
+  resolution: "@types/geojson@npm:7946.0.11"
+  checksum: 93fe7e9c5d16b0a836058ee4b87f8b022d53893d5a8e7ab52c8bf64d12039d076df99f3764c1c4da13abaa1001115fd899330edba4d8d8fa4a4feb162650b22c
+  languageName: node
+  linkType: hard
+
+"@types/leaflet@npm:^1.9.6":
+  version: 1.9.6
+  resolution: "@types/leaflet@npm:1.9.6"
+  dependencies:
+    "@types/geojson": "*"
+  checksum: 64776f0ffb005950d4e07f1cccce861307c9c2b6be3151050b83f1c94eb837951856933fed91e8cdfa1ca9fdc72873af27c9a53a7ffe9981097f21373e3a1322
+  languageName: node
+  linkType: hard
+
 "@vitejs/plugin-vue@npm:^4.2.3":
   version: 4.4.0
   resolution: "@vitejs/plugin-vue@npm:4.4.0"
@@ -367,6 +383,21 @@ __metadata:
   dependencies:
     "@volar/language-core": 1.10.3
   checksum: 31fb74c684dabb4920cd986cd9244668cbf8f39a6e31c742b4238e1e57ea90a94c0819acfc0c88e932a417a7f5e7779b80d7b9222cc5da458f0322dbd83b63f5
+  languageName: node
+  linkType: hard
+
+"@vue-leaflet/vue-leaflet@npm:^0.10.1":
+  version: 0.10.1
+  resolution: "@vue-leaflet/vue-leaflet@npm:0.10.1"
+  dependencies:
+    vue: ^3.2.25
+  peerDependencies:
+    "@types/leaflet": ^1.5.7
+    leaflet: ^1.6.0
+  peerDependenciesMeta:
+    "@types/leaflet":
+      optional: true
+  checksum: 5e1cf9f34f5729ddf688399a400fc6edc10464bb41364e76a467eee326a887086df8999788ffd0965215a4359b90eda565628668904eeaa3204a57605e5cec9f
   languageName: node
   linkType: hard
 
@@ -1138,9 +1169,12 @@ __metadata:
   dependencies:
     "@iconify/vue": ^4.1.1
     "@types/axios": ^0.14.0
+    "@types/leaflet": ^1.9.6
     "@vitejs/plugin-vue": ^4.2.3
+    "@vue-leaflet/vue-leaflet": ^0.10.1
     autoprefixer: ^10.4.16
     axios: ^1.5.1
+    leaflet: ^1.9.4
     pinia: ^2.1.6
     postcss: ^8.4.31
     tailwindcss: ^3.3.3
@@ -1469,6 +1503,13 @@ __metadata:
   bin:
     jiti: bin/jiti.js
   checksum: 7924062b5675142e3e272a27735be84b7bfc0a0eb73217fc2dcafa034f37c4f7b4b9ffc07dd98bcff0f739a8811ce1544db205ae7e97b1c86f0df92c65ce3c72
+  languageName: node
+  linkType: hard
+
+"leaflet@npm:^1.9.4":
+  version: 1.9.4
+  resolution: "leaflet@npm:1.9.4"
+  checksum: bfc79f17a247b37b92d84b3c78702501603392d6589fde606de4a825d11f1609d90225388834f2e0709dac327e52dcd4b4b9cc9fd3d590060c5b1e53b84fa6c6
   languageName: node
   linkType: hard
 
@@ -2535,7 +2576,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:^3.3.4":
+"vue@npm:^3.2.25, vue@npm:^3.3.4":
   version: 3.3.4
   resolution: "vue@npm:3.3.4"
   dependencies:

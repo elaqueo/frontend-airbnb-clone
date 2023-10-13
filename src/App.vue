@@ -5,6 +5,8 @@ import RentModal from './components/modals/RentModal.vue';
 import Navbar from './components/navbar/Navbar.vue';
 import { useAuthStore } from './stores/auth.store';
 
+import 'leaflet/dist/leaflet.css';
+
 const authStore = useAuthStore();
 authStore.loadUser();
 </script>
