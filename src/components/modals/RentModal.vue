@@ -5,34 +5,43 @@
     title="Airbnb your home!"
     :action-label="actionLabel"
     :secondary-action-label="secondaryActionLabel"
-    @on-secondary-action="step === STEPS.CATEGORY ? undefined : backStep"
+    @on-secondary-action="backStep"
     @on-close="rentModal.close"
-    @on-submit="onSubmit"
+    @on-submit="nextStep"
   >
-    <div
-      v-if="step === STEPS.CATEGORY"
-      class="flex flex-col gap-8"
-    >
-      <Heading
-        title="Which of these best describes your place?"
-        subtitle="Pick a category"
-      />
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto"
-      >
+    <div class="flex flex-col gap-8">
+      <template v-if="step === STEPS.CATEGORY">
+        <Heading
+          title="Which of these best describes your place?"
+          subtitle="Pick a category"
+        />
         <div
-          v-for="c in categories"
-          :key="c.label"
-          class="col-span-1"
+          class="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto"
         >
-          <CategoryInput
-            @click="setCategory"
-            :selected="isSelected(c.label)"
-            :label="c.label"
-            :icon="c.icon"
-          />
+          <div
+            v-for="c in categories"
+            :key="c.label"
+            class="col-span-1"
+          >
+            <CategoryInput
+              @click="setCategory"
+              :selected="isSelected(c.label)"
+              :label="c.label"
+              :icon="c.icon"
+            />
+          </div>
         </div>
-      </div>
+      </template>
+      <template v-else-if="step === STEPS.LOCATION">
+        <Heading
+          title="Where is your place located?"
+          subtitle="Help guests find you!"
+        />
+        <CountrySelect
+          @change="(value) => (form.location = value ?? null)"
+          :value="form.location"
+        />
+      </template>
     </div>
   </Modal>
 </template>
@@ -45,6 +54,7 @@ import { categories } from '../../libs/models/categories';
 import Modal from './Modal.vue';
 import Heading from '../Heading.vue';
 import CategoryInput from '../inputs/CategoryInput.vue';
+import CountrySelect from '../inputs/CountrySelect.vue';
 import { listingMakeDefault } from '../../libs/dtos/listings.dto';
 
 enum STEPS {
@@ -80,8 +90,4 @@ const setCategory = (category: string) => {
 };
 
 const isSelected = (label: string) => form.category === label;
-
-const onSubmit = async () => {
-  rentModal.close();
-};
 </script>

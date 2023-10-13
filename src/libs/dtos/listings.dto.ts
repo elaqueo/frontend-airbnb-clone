@@ -1,6 +1,8 @@
+import { Country } from '../models/countries';
+
 export type ListingCreateDto = {
   category: string;
-  location: string | null;
+  location: Country | null;
   guestCount: number;
   roomCount: number;
   bathroomCount: number;
@@ -10,7 +12,7 @@ export type ListingCreateDto = {
   description: string;
 };
 
-export const listingMakeDefault = () => ({
+export const listingMakeDefault = (): ListingCreateDto => ({
   category: '',
   location: null,
   guestCount: 1,
